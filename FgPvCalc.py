@@ -4,7 +4,7 @@ import pandas as pd
 # Constants
 discount_rate = 0.07  # annual
 monthly_discount_rate = (1 + discount_rate) ** (1/12) - 1
-monthly_balance_decline_rate = 0.04
+monthly_balance_decline_rate = 0.02
 # Plans
 plans = {
     "80%": {
