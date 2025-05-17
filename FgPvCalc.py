@@ -48,7 +48,8 @@ for plan_name, plan in plans.items():
             refund = ef * plateau
         else:
             refund = ef * max(1 - monthly_balance_decline_rate * months, plateau)
-        
+        # discount refund (ChatGPT failed to do this!)
+        refund = refund / (1 + monthly_discount_rate) ** months)
         net_entrance_cost = ef - refund
         
         # PV of monthly fees
