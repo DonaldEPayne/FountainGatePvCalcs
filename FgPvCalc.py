@@ -11,19 +11,19 @@ plans = {
         "entrance_fee": 683400,
         "monthly_fee": 4738,
         "plateau": 0.80,
-        "months_to_plateau": 0 
+        "months_to_plateau": 0 # calculate below
     },
     "50%": {
         "entrance_fee": 530700,
         "monthly_fee": 4738,
         "plateau": 0.50,
-        "months_to_plateau": 12.5  # 4%/mo until 50% refund
+        "months_to_plateau": 0
     },
     "0%": {
         "entrance_fee": 431700,
         "monthly_fee": 4468,
         "plateau": 0.0,
-        "months_to_plateau": 25  # 4%/mo until 0% refund
+        "months_to_plateau": 0
     }
 }
 
@@ -37,7 +37,7 @@ for plan_name, plan in plans.items():
     ef = plan["entrance_fee"]
     mf = plan["monthly_fee"]
     plateau = plan["plateau"]
-	plan["months_to_plateau"] = (1 - plateau) / monthly_balance_decline_rate  # x%/mo until 80% refund
+    plan["months_to_plateau"] = (1 - plateau) / monthly_balance_decline_rate  # R%/mo until P% refund
     m_plateau = plan["months_to_plateau"]
     
     for year in years:
