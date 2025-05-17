@@ -67,4 +67,4 @@ for plan_name, plan in plans.items():
 # Convert to DataFrame
 df_results = pd.DataFrame(results)
 pivot_table = df_results.pivot(index="Year", columns="Plan", values="PV Cost")
-pivot_table
+print (pivot_table)
