@@ -8,27 +8,21 @@ monthly_balance_decline_rate = 0.02
 # Plans
 plans = {
     "80%": {
-        "entrance_fee": 683400,
+        "entrance_fee": 689600, # specific quote; generic price = 683400,
         "monthly_fee": 4738,
         "plateau": 0.80,
         "months_to_plateau": 0 # calculate below
     },
     "50%": {
-        "entrance_fee": 530700,
+        "entrance_fee": 535300, # specific quote; generic price = 530700,
         "monthly_fee": 4738,
         "plateau": 0.50,
-        "months_to_plateau": 0
-    },
-    "0%": {
-        "entrance_fee": 431700,
-        "monthly_fee": 4468,
-        "plateau": 0.0,
         "months_to_plateau": 0
     }
 }
 
 # Years to evaluate
-years = [1, 2, 3, 4, 5, 10, 20]
+years = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 20]
 
 # Result container
 results = []
@@ -49,7 +43,7 @@ for plan_name, plan in plans.items():
         else:
             refund = ef * max(1 - monthly_balance_decline_rate * months, plateau)
         # discount refund (ChatGPT failed to do this!)
-        refund = refund / (1 + monthly_discount_rate) ** months)
+        refund = refund / (1 + monthly_discount_rate) ** months
         net_entrance_cost = ef - refund
         
         # PV of monthly fees
